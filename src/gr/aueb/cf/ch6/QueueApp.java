@@ -10,7 +10,21 @@ public class QueueApp {
     static int top = -1;
 
     public static void main(String[] args) {
+        int num;
 
+        enQueue(1);
+        enQueue(2);
+        enQueue(3);
+        enQueue(4);
+        enQueue(5);
+        enQueue(6);
+
+        num = deQueue();
+        System.out.println("Priority: " + num);
+        num = deQueue();
+        System.out.println("Priority: " + num);
+
+        traverseQueue();
     }
 
     public static void enQueue(int val) {
