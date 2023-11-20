@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class CombinationsApp {
 
     public static void main(String[] args) throws FileNotFoundException {
-        File inFile = new File("C:/tmp/inputData.txt");
-        File outFile = new File("C:/tmp/outputData.txt");
+        File inFile = new File("C:\\tmp\\inputData.txt");
+        File outFile = new File("C:\\tmp\\outputData.txt");
         Scanner in = new Scanner(inFile);
         PrintStream ps = new PrintStream(outFile);
         int m = 4;
@@ -34,11 +34,23 @@ public class CombinationsApp {
                         row[2] = numbers.get(l);
                         row[3] = numbers.get(n);
 
-                        System.out.printf("%d\t%d\t%d\t%d", row[0], row[1], row[2], row[3]);
-                        //ps.printf("%d\t%d\t%d\t%d", row[0], row[1], row[2], row[3]);
+                       if (!isEven(row, 2)) {
+                           System.out.printf("%d\t%d\t%d\t%d\n", row[0], row[1], row[2], row[3]);
+                           ps.printf("%d\t%d\t%d\t%d\n", row[0], row[1], row[2], row[3]);
+                       }
                     }
                 }
             }
         }
+    }
+
+    public static boolean isEven(int[] row, int threshold) {
+        int evens = 0;
+
+        for (int num : row) {
+            if (num % 2 == 0) evens++;
+        }
+
+        return evens > threshold;
     }
 }
