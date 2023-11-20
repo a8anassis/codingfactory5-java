@@ -1,5 +1,8 @@
 package gr.aueb.cf.ch6;
 
+/**
+ * LIFO (Last In First Out)
+ */
 public class StackApp {
 
     static int[] myStack = new int[50];
