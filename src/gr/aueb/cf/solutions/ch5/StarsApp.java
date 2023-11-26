@@ -3,7 +3,7 @@ package gr.aueb.cf.solutions.ch5;
 import java.util.Scanner;
 
 /**
- * Demonstrates stars app with methods.
+ * Demonstrates stars-app with methods.
  */
 public class StarsApp {
 
