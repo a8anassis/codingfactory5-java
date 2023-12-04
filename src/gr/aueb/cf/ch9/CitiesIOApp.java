@@ -16,7 +16,8 @@ public class CitiesIOApp {
         File dir = new File("C:/tmp/io");
 
         if (!dir.exists()) {
-            if (!dir.mkdir()) {
+            boolean success = dir.mkdir();
+            if (!success) {
                 System.err.println("Error in make dir");
                 System.exit(1);
             }
