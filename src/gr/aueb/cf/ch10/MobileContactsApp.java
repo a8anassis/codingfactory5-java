@@ -13,6 +13,46 @@ public class MobileContactsApp {
 
     }
 
+    /*
+     * Controllers.
+     */
+
+    public static String insertContactController(String[] contact) {
+        String response = "";
+        String[] errorsArray;
+
+        if (contact == null) return "nullError";
+
+        try {
+            errorsArray = validateInsertContact(contact);
+            if (!errorsArray[0].isEmpty() || !errorsArray[1].isEmpty() || !errorsArray[2].isEmpty()) {
+                for (String message : errorsArray) {
+                    response += message + "\n";
+                }
+                return response;    // validation failure
+            }
+            insertContactService(contact);
+            response = "OK";        // success
+        } catch (Exception e) {
+            return e.getMessage();  // exception failure
+        }
+        return response;
+    }
+
+    public static String[] validateInsertContact(String[] contact) {
+        String[] errorsArray = new String[] {"", "", ""};
+
+        if (!contact[0].matches("\\S+") || contact[0].length() < 2) {
+            errorsArray[0] = "invFirstname";
+        }
+        if (!contact[1].matches("\\S+") || contact[1].length() < 2) {
+            errorsArray[1] = "invLastname";
+        }
+        if (!contact[2].matches("\\S+") || contact[2].length() != 10) {
+            errorsArray[2] = "invPhone";
+        }
+        return errorsArray;
+    }
 
     /*
      * Service Layer.
