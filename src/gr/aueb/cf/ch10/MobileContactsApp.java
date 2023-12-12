@@ -1,6 +1,5 @@
 package gr.aueb.cf.ch10;
 
-import java.awt.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -13,6 +12,87 @@ public class MobileContactsApp {
     public static void main(String[] args) {
 
     }
+
+
+    /*
+     * Service Layer.
+     */
+
+    public static String[] getContactByPhoneNumberService(String phoneNumber) throws Exception {
+        String[] contact;
+
+        try {
+            contact = getByPhoneNumber(phoneNumber);
+            if (contact.length == 0) {
+                throw new Exception("Contact not found");
+            }
+            return contact;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public static String[][] getAllContactsService() throws Exception {
+        String[][] allContacts;
+
+        try {
+            allContacts = getAllContacts();
+            if (allContacts.length == 0) {
+                throw new Exception("List is empty");
+            }
+            return allContacts;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public static void insertContactService(String... contact) throws Exception {
+        boolean isInserted = false;
+        if (contact.length != 3) return;
+
+        try {
+            isInserted = insertContact(contact[0], contact[1], contact[2]);
+            if (!isInserted) {
+                throw new Exception("Phone already exists");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public static void updateContactService(String... contact) throws Exception {
+        boolean isUpdated = false;
+        if (contact.length != 3) return;
+
+        try {
+            isUpdated = updateContact(contact[0], contact[1], contact[2]);
+            if (!isUpdated) {
+                throw new Exception("Contact not exists");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public static void deleteContactService(String phoneNumber) throws Exception {
+        boolean isDeleted = false;
+
+        try {
+            isDeleted = deleteContact(phoneNumber);
+            if (!isDeleted) {
+                throw new Exception("Contact not exists");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+
 
 
 
@@ -69,7 +149,7 @@ public class MobileContactsApp {
         return true;
     }
 
-    public static String[] getContactByPhoneNumber(String phoneNumber) {
+    public static String[] getByPhoneNumber(String phoneNumber) {
         int position = getContactIndexByPhoneNumber(phoneNumber);
 
         return (position == -1) ? new String[] {} : contacts[position];
