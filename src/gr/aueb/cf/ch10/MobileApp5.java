@@ -64,7 +64,6 @@ public class MobileApp5 {
                     System.out.println("Request successfully completed");
                     break;
                 case 3:
-                    // Assume phone is PK and can not be updated.
                     showSearchDeleteContactForm();
                     phone = getPhone();
                     response = deleteContactController(phone);
@@ -75,16 +74,13 @@ public class MobileApp5 {
                     System.out.println("Request successfully completed");
                     break;
                 case 4:
-                    // Assume phone is PK and can not be updated.
                     showSearchDeleteContactForm();
                     phone = getPhone();
                     response = searchContactController(phone);
                     System.out.println(response);
                     break;
                 case 5:
-                    // Assume phone is PK and can not be updated.
                     response = getAllContactsController();
-
                     System.out.println(response);
                     break;
             }
