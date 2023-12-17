@@ -14,6 +14,9 @@ public class CitiesIOApp {
         String line = "";
         String[] cities;
         File dir = new File("C:/tmp/io");
+        File grFile = new File(dir + "/" + "gr.txt");
+        File usaFile = new File(dir + "/" + "usa.txt");
+        File deFile = new File(dir + "/" + "de.txt");
 
         if (!dir.exists()) {
             boolean success = dir.mkdir();
@@ -23,26 +26,28 @@ public class CitiesIOApp {
             }
         }
 
-        try (BufferedReader bf = new BufferedReader(new FileReader("C:/tmp/cities.txt"))) {
+        try (BufferedReader bf = new BufferedReader(new FileReader("C:/tmp/cities.txt"));
+             PrintStream psGr = new PrintStream(grFile, StandardCharsets.UTF_8);
+             PrintStream psUsa = new PrintStream(usaFile, StandardCharsets.UTF_8);
+             PrintStream psDe = new PrintStream(deFile, StandardCharsets.UTF_8)) {
 
             while ((line = bf.readLine()) != null) {
                 cities = line.split(" +");
                 switch (cities[0]) {
                     case "Greece":
-                        File grFile = new File(dir + "/" + "gr.txt");
-                        PrintStream psGr = new PrintStream(grFile, StandardCharsets.UTF_8);
+                        /*File grFile = new File(dir + "/" + "gr.txt");
+                        PrintStream psGr = new PrintStream(grFile, StandardCharsets.UTF_8);*/
                         printTitle(psGr, "GR Cities");
                         printTokens(psGr, cities);
+                        //psGr.close();
                         break;
                     case "USA":
-                        File usaFile = new File(dir + "/" + "usa.txt");
-                        PrintStream psUsa = new PrintStream(usaFile, StandardCharsets.UTF_8);
+
                         printTitle(psUsa, "USA Cities");
                         printTokens(psUsa, cities);
                         break;
                     case "Germany":
-                        File deFile = new File(dir + "/" + "de.txt");
-                        PrintStream psDe = new PrintStream(deFile, StandardCharsets.UTF_8);
+
                         printTitle(psDe, "Germany Cities");
                         printTokens(psDe, cities);
                         break;
