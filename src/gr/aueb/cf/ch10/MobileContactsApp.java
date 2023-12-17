@@ -18,7 +18,7 @@ public class MobileContactsApp {
      */
 
     public static String insertContactController(String[] contact) {
-        String response = "";
+        String response = null;
         String[] errorsArray;
 
         if (contact == null) return "nullError";
