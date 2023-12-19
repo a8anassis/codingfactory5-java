@@ -21,5 +21,7 @@ public class StudentApp {
         System.out.println("ID: " + alice.getId());
         System.out.println("FIRSTNAME: " + alice.getFirstname());
         System.out.println("LASTNAME: " + alice.getLastname());
+
+        System.out.println("Instances Count: " + Student.getInstancesCount());
     }
 }
