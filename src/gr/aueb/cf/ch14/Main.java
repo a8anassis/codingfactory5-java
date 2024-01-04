@@ -6,5 +6,7 @@ public class Main {
         CodingFactory codingFactory = CodingFactory.getInstance();
         CodingFactory codingFactory2 = CodingFactory.getInstance();
         codingFactory.sayHi("CF Hi!");
+
+        HelloUtil.sayHello();
     }
 }
