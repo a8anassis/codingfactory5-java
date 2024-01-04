@@ -184,6 +184,7 @@ public class MobileContactsApp {
             return false;
         }
 
+        if (pivot == contacts.length - 1) pivot--;
         System.arraycopy(contacts, positionToDelete + 1, contacts, positionToDelete, pivot - positionToDelete);
         pivot--;
         return true;

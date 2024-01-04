@@ -107,7 +107,7 @@ public class Account {
 
             balance -= amount;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             throw e;
         }
     }
@@ -123,5 +123,15 @@ public class Account {
      */
     public double getAccountBalance() {
         return getBalance();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String accountToString() {
+        return "(" + id + ", " + iban + ", " + firstname
+                + ", " + lastname + ", " + ssn + ", " + balance
+                + ")";
     }
 }
