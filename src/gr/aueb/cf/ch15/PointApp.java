@@ -7,6 +7,8 @@ public class PointApp {
         Point p2 = new Point2D(4, 6);
         Point p3 = new Point3D(1, 2, 3);
 
+       // p2.setY(5);
+
 //        p2.movePlusOne();
 //
 //        p3.movePlus10();

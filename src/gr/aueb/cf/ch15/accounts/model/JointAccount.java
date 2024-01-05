@@ -42,9 +42,9 @@ public class JointAccount extends IdentifiableEntity {
         if (secondHolder.getSsn().equals(ssn)) {
             account.setHolder(secondHolder);
         }
-        if (account.getHolder().getSsn().equals(ssn)) {
-            account.setHolder(account.getHolder());
-        }
+//        if (account.getHolder().getSsn().equals(ssn)) {
+//            account.setHolder(account.getHolder());
+//        }
         account.withdraw(amount, ssn);
     }
 
