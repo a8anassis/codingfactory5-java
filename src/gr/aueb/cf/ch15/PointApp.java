@@ -1,7 +1,5 @@
 package gr.aueb.cf.ch15;
 
-import gr.aueb.cf.ch6.CircularArrayRotation;
-
 public class PointApp {
 
     public static void main(String[] args) {
