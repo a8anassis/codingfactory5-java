@@ -20,6 +20,12 @@ public class Account extends IdentifiableEntity {
         this.balance = balance;
     }
 
+    public Account(Account account) {
+        iban = account.getIban();
+        holder = account.getHolder();
+        balance = account.getBalance();
+    }
+
     public String getIban() {
         return iban;
     }

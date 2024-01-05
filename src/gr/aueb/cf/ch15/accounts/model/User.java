@@ -14,6 +14,12 @@ public class User extends IdentifiableEntity {
         this.ssn = ssn;
     }
 
+    public User(User user) {
+        firstname = user.getFirstname();
+        lastname = user.getLastname();
+        ssn = user.getSsn();
+    }
+
     public String getFirstname() {
         return firstname;
     }
