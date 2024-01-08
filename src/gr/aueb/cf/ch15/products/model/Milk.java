@@ -1,6 +1,6 @@
 package gr.aueb.cf.ch15.products.model;
 
-public class Milk extends Product {
+public class Milk extends Product implements IMilk {
     private String manufacturer;
 
     public Milk() {
@@ -29,8 +29,7 @@ public class Milk extends Product {
     }
 
     @Override
-    public void insert() {
-        super.insert();
-        System.out.println("Successful insert");
+    public Milk get() {
+        return this;
     }
 }

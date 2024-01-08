@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * JavaBean -> Data Class
  */
-public class Product {
-    private final static List<Product> products = new ArrayList<>();
+public class Product implements IProduct {
+    private final static List<IProduct> products = new ArrayList<>();
 
     private long id;
     private String productName;
@@ -59,7 +59,7 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public static List<Product> getProducts() {
+    public static List<IProduct> getProducts() {
         return Collections.unmodifiableList(products);
     }
 
@@ -74,10 +74,9 @@ public class Product {
                 '}';
     }
 
-    /*
-     * Public API
-     */
+    @Override
     public void insert() {
         products.add(this);
     }
+
 }
