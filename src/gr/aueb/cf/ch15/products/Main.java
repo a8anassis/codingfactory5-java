@@ -3,6 +3,7 @@ package gr.aueb.cf.ch15.products;
 import gr.aueb.cf.ch15.products.model.IProduct;
 import gr.aueb.cf.ch15.products.model.Milk;
 import gr.aueb.cf.ch15.products.model.Product;
+import gr.aueb.cf.ch15.products.service.Store;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ public class Main {
 
         Product product1 = new Product(1, "Honey", "My Honey", 12.8, 40);
         product1.setDescription("Mountain Honey");
+
+        Store store1 = new Store(product2);
 
 
 
@@ -29,6 +32,8 @@ public class Main {
                 IProduct iProduct = new Product(5, "Apple", "Greek Apples", 20.8, 80);
         iProduct.insert();
 
+        // Wiring
+        Store store2 = new Store(myMilk);
         /*
          * Call the service.
          */
