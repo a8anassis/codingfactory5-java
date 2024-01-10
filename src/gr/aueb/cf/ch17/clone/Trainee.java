@@ -1,8 +1,14 @@
 package gr.aueb.cf.ch17.clone;
 
-public class Trainee implements Cloneable {
+import java.awt.*;
+import java.io.Serializable;
+import java.util.Objects;
+
+public class Trainee implements Cloneable, Serializable {
+    private static final long serialVersionUID = 123456;
     private String name;
     private City city;
+    private transient int hashCode;
 
     public Trainee() {
 
@@ -48,5 +54,23 @@ public class Trainee implements Cloneable {
                 "name='" + name + '\'' +
                 ", city=" + city +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Trainee trainee = (Trainee) o;
+
+        if (!getName().equals(trainee.getName())) return false;
+        return getCity().equals(trainee.getCity());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getName().hashCode();
+        result = 31 * result + getCity().hashCode();
+        return result;
     }
 }
