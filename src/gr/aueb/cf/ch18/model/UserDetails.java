@@ -41,4 +41,23 @@ public class UserDetails extends AbstractEntity {
                 ", lastname='" + lastname + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserDetails that = (UserDetails) o;
+
+        if (getFirstname() != null ? !getFirstname().equals(that.getFirstname()) : that.getFirstname() != null)
+            return false;
+        return getLastname() != null ? getLastname().equals(that.getLastname()) : that.getLastname() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getFirstname() != null ? getFirstname().hashCode() : 0;
+        result = 31 * result + (getLastname() != null ? getLastname().hashCode() : 0);
+        return result;
+    }
 }
