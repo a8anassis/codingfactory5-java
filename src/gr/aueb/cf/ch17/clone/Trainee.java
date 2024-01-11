@@ -33,7 +33,7 @@ public class Trainee implements Cloneable, Serializable {
     }
 
     public City getCity() {
-        return new City(getCity());
+        return city; //new City(city);
     }
 
     public void setCity(City city) {
@@ -43,8 +43,8 @@ public class Trainee implements Cloneable, Serializable {
     @Override
     protected Trainee clone() throws CloneNotSupportedException {
         Trainee trainee = (Trainee) super.clone();
-        City city1 = new City(getCity().getDescription());
-        trainee.setCity(city1);
+//        City city1 = new City(getCity().getDescription());
+//        trainee.setCity(city1);
         return trainee;
     }
 
