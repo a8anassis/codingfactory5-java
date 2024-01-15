@@ -8,7 +8,8 @@ public class UserDetails extends AbstractEntity {
 
     }
 
-    public UserDetails(String firstname, String lastname) {
+    public UserDetails(Long id, String firstname, String lastname) {
+        setId(id);
         this.firstname = firstname;
         this.lastname = lastname;
     }
