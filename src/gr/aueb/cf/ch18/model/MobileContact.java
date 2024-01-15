@@ -16,15 +16,12 @@ public class MobileContact extends AbstractEntity {
     public UserDetails getUserDetails() {
         return new UserDetails(userDetails);
     }
-
     public void setUserDetails(UserDetails userDetails) {
         this.userDetails = new UserDetails(userDetails);
     }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }

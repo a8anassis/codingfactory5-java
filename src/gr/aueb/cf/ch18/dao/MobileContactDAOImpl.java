@@ -38,26 +38,32 @@ public class MobileContactDAOImpl implements IMobileContactDAO {
 
     @Override
     public List<MobileContact> getAll() {
-        return null;
+        return new ArrayList<>(contacts);
     }
 
     @Override
     public MobileContact get(String phoneNumber) {
-        return null;
+        Optional<MobileContact> contact = contacts.stream()
+                .filter(c -> c.getPhoneNumber().equals(phoneNumber))
+                .findFirst();
+
+        return contact.orElse(null);
     }
 
     @Override
     public boolean phoneNumberExists(String phoneNumber) {
-        return false;
+        return contacts.stream()
+                .anyMatch(c -> c.getPhoneNumber().equals(phoneNumber));
     }
 
     @Override
     public boolean userIdExists(Long id) {
-        return false;
+        return contacts.stream()
+                .anyMatch(c -> c.getId().equals(id));
     }
 
     @Override
     public void delete(String phoneNumber) {
-
+        contacts.removeIf(contact -> contact.getPhoneNumber().equals(phoneNumber));
     }
 }
