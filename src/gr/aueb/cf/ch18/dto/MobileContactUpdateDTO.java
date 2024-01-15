@@ -1,24 +1,24 @@
 package gr.aueb.cf.ch18.dto;
 
 public class MobileContactUpdateDTO extends BaseDTO {
-    private UserDetailsInsertDTO userDetailsInsertDTO;
+    private UserDetailsUpdateDTO userDetailsUpdateDTO;
     private String phoneNumber;
 
     public MobileContactUpdateDTO() {
 
     }
 
-    public MobileContactUpdateDTO(UserDetailsInsertDTO userDetailsInsertDTO, String phoneNumber) {
-        this.userDetailsInsertDTO = userDetailsInsertDTO;
+    public MobileContactUpdateDTO(UserDetailsUpdateDTO userDetailsUpdateDTO, String phoneNumber) {
+        this.userDetailsUpdateDTO = userDetailsUpdateDTO;
         this.phoneNumber = phoneNumber;
     }
 
-    public UserDetailsInsertDTO getUserDetailsInsertDTO() {
-        return userDetailsInsertDTO;
+    public UserDetailsUpdateDTO getUserDetailsUpdateDTO() {
+        return userDetailsUpdateDTO;
     }
 
-    public void setUserDetailsInsertDTO(UserDetailsInsertDTO userDetailsInsertDTO) {
-        this.userDetailsInsertDTO = userDetailsInsertDTO;
+    public void setUserDetailsUpdateDTO(UserDetailsUpdateDTO userDetailsUpdateDTO) {
+        this.userDetailsUpdateDTO = userDetailsUpdateDTO;
     }
 
     public String getPhoneNumber() {
