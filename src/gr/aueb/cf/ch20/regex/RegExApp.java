@@ -1,10 +1,26 @@
 package gr.aueb.cf.ch20.regex;
 
+import javax.swing.table.AbstractTableModel;
+
 public class RegExApp {
 
     public static void main(String[] args) {
-        String s = "c.f@aueb.gr";
-        System.out.println(isEmail(s));
+//        String s = "c.f@aueb.gr";
+//        System.out.println(isEmail(s));
+
+
+        String aueb = "Athens Uni   of Eco and Bus";
+        String bob = "Bob Dylan";
+//        String[] tokens = aueb.split("\\s+");
+//        for (String token : tokens) {
+//            System.out.println(token);
+//        }
+
+//        aueb = aueb.replaceAll("\\s+", "-");
+//        System.out.println(aueb);
+
+        bob = bob.replaceAll("(\\w+)\\s+(\\w+)", "$2 $1");
+        System.out.println(bob);
     }
 
     public static boolean isRed(String s) {
