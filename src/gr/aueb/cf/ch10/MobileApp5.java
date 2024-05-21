@@ -330,9 +330,8 @@ public class MobileApp5 {
             String[] contact = getContactByPhoneNumber(phoneNumber);
             if (contact.length == 0) {
                 throw new Exception("Contact not found");
-            } else {
-                return contact;
             }
+            return contact;
         } catch (Exception e) {
             log(e);
             throw e;
@@ -367,6 +366,7 @@ public class MobileApp5 {
             if (!updateContact(contact[0], contact[1], contact[2])) {
                 throw new Exception("Update Error");
             }
+            log("Update Success");
         } catch (Exception e) {
             log(e);
             throw e;
@@ -457,6 +457,18 @@ public class MobileApp5 {
         final Path path = Paths.get("C:/tmp/log-mobile.txt");
         try (PrintStream ps = new PrintStream(new FileOutputStream(path.toFile(), true))) {
             ps.println(LocalDateTime.now() + "\n" + e + "\n");
+            ps.printf("%s", (messages.length == 1) ? messages[0] : "");
+        } catch (IOException ex) {
+            //ex.printStackTrace();
+            System.err.println(ex.getMessage());
+            throw ex;
+        }
+    }
+
+    public static void log(String... messages) throws IOException {
+        final Path path = Paths.get("C:/tmp/log-mobile.txt");
+        try (PrintStream ps = new PrintStream(new FileOutputStream(path.toFile(), true))) {
+            ps.println(LocalDateTime.now() + "\n");
             ps.printf("%s", (messages.length == 1) ? messages[0] : "");
         } catch (IOException ex) {
             //ex.printStackTrace();

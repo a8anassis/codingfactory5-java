@@ -155,6 +155,8 @@ public class MobileContactsApp {
 
     public static boolean insertContact(String firstname, String lastname, String phoneNumber) {
         if (isFull(contacts)) return false;
+
+        // Idempotent - idempotency
         if (getContactIndexByPhoneNumber(phoneNumber) != -1) {
             return false;
         }
