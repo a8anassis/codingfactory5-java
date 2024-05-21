@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class MobileContactsApp {
 
+
     final static Scanner in = new Scanner(System.in);
     final static String[][] contacts = new String[500][3];
     static int pivot = -1;
