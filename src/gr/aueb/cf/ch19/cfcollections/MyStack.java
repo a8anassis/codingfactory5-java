@@ -12,7 +12,6 @@ public class MyStack<T> {
     private final Deque<T> myStack = new ArrayDeque<>();
 
     public MyStack() {
-
     }
 
     public void push(T t) {
@@ -21,6 +20,10 @@ public class MyStack<T> {
 
     public T pop() {
         return myStack.pop();
+    }
+
+    public boolean isEmpty() {
+        return myStack.isEmpty();
     }
 
     public void forEach(Consumer<T> action) {

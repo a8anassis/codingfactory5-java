@@ -1,9 +1,6 @@
 package gr.aueb.cf.ch19.maps;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamDemo {
@@ -16,10 +13,14 @@ public class StreamDemo {
         products.put("EGG", new Product("Eggs", 3.5, 100));
         products.put("EGG-LAMIA", new Product("Eggs", 13.5, 120));
 
-        List<Product> highPricesList = products.values().stream()
-                .filter(product -> product.getPrice() >= 15)
-                .collect(Collectors.toList());
-
+//        List<Product> highPricesList = products.values().stream()
+//                .filter(product -> product.getPrice() >= 15)
+//                .collect(Collectors.toList());
+//
+//        Optional<Product> opt = products.values().stream()
+//                .filter(product -> product.getPrice() >= 15)
+//                .findFirst();
+//        System.out.println(opt.orElse(null));
 
         Map<String, Object> criteria = new HashMap<>() {
             {
@@ -30,7 +31,7 @@ public class StreamDemo {
         String eggs = products.values().stream()
                 .filter(product -> product.getDescription().equals(criteria.get("description")))
                 .map(Product::toString)
-                .collect(Collectors.joining());
+                .collect(Collectors.joining("\n"));
 
         System.out.println(eggs);
     }
